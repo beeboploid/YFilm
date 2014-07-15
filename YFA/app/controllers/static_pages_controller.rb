@@ -1,10 +1,11 @@
 class StaticPagesController < ApplicationController
-	
-	def skip_login? #skip login for static pages yayaayay!
+  
+  def skip_login? #skip login for static pages yayaayay!
 		true
-	end
+  end
 
-	def home
-		
-	end
+  def home
+  end
+
+  
 end

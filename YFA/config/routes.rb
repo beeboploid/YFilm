@@ -1,28 +1,19 @@
-Rails.application.routes.draw do
-
+YFA::Application.routes.draw do
+  
 resources :users
 
-  get 'users/new'
-  
+  get "users/new"
+
   root 'static_pages#home'
 
+  match '/profile', to: 'users#show', via: 'get'
 
-
-
-
-  get 'users/show'
-
-  get 'users/create'
-
-  get 'users/update'
-
-  get 'users/edit'
-
+  get "static_pages/new"
+  get "static_pages/create"
   
- 
-
-
-
+  get "users/create"
+  get "users/update"
+  get "users/edit"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

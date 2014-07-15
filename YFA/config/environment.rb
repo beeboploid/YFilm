@@ -2,9 +2,12 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the Rails application.
-Rails.application.initialize!
+YFA::Application.initialize!
 
-
+#
+##  Add this block to the bottom of your environment.rb file
+#
+ 
 CASClient::Frameworks::Rails::Filter.configure(
   :cas_base_url => "https://secure.its.yale.edu/cas/",
   :username_session_key => :cas_user,
