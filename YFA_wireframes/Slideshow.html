@@ -1,0 +1,133 @@
+<html>
+<head>
+    <title>Slideshow</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+    	$(document).ready(function() {
+    		var currentPosition = 0;
+    		var slideWidth = 500;
+    		var slides = $('.slide');
+    		var numberOfSlides = slides.length;
+    		var slideShowInterval;
+			var speed = 6000;
+
+			slideShowInterval = setInterval(changePosition, speed);
+
+    		slides.wrapAll('<div id="slidesHolder"></div>')
+    		slides.css({'float':'left'});
+    		$('#slidesHolder').css('width', slideWidth * numberOfSlides)
+
+    		function changePosition() {
+			if(currentPosition == numberOfSlides - 1) {
+				currentPosition = 0;
+			} else {
+				currentPosition++;
+			}
+			moveSlide();
+			}
+		
+		
+			function moveSlide() {
+					$('#slidesHolder')
+					  .animate({'marginLeft' : slideWidth*(-currentPosition)});
+			}
+
+		});
+
+    </script>
+
+    <style>
+		#slideshow #slideshowWindow {
+			width:500px;
+			height:257px;
+			margin:0;
+			padding:0;
+			position:relative;
+			overflow:hidden;
+			border-bottom:2px solid black;
+		}
+
+		#slideshow #slideshowWindow .slide {
+			margin:0;
+			padding:0;
+			width:500px; 
+			height:257px;
+			float:left;
+			position:relative;
+		}
+
+		#slideshow #slideshowWindow .slide .slideText {
+			position:absolute;
+			top:165px;
+			left:0px;
+			height:95px;
+			border-top:10px solid white;
+			border-right:24px solid white;
+			background-color:white;
+			margin:0;
+			padding:0;
+			color:black;
+			font-family:Futura, Arial, Helvetica, sans-serif;
+			line-height: .35;
+		}
+
+		#slideshow #slideshowWindow .slide .slideText h1 {
+			letter-spacing: .5px;
+			font-size:20pt;
+			line-height: 1;
+		}
+
+		#slideshow #slideshowWindow .slide .slideText h3 {
+			letter-spacing: 2px;
+			font-size:12pt;
+		}
+
+		#slideshow #slideshowWindow .slide .slideText a:link, 
+		#slideshow #slideshowWindow .slide .slideText a:visited {
+			color:black;
+			text-decoration:none;
+		}
+
+		#slideshow #slideshowWindow .slide .slideText a:hover {
+			color:#0066CC;
+		}
+
+    </style>
+
+</head>
+
+<body>
+
+	<div id="slideshow">
+		<div id="slideshowWindow">
+
+			<div class="slide">
+				<img src="http://www.lesmiserablesfilm.com/splash/images/gallery/img24.jpg?01AD=3txrHM6G_9RAmzHkr4a0mNG94LatCMYGcdj5BUb4g1fp6jhyM_-63Aw&01RI=69C04CBA7BDBBA2&01NA=" width="500" />
+					<div class="slideText">
+						<h3>NOW PLAYING</h3>
+						<a href='#'><h1>Les Miserables</h1></a>
+					</div>
+			</div>
+
+			<div class="slide">
+				<img src="http://www.cosmopolitan.co.uk/cm/cosmopolitanuk/images/wq/an-education-student-film-lrg.jpg" width="500" />
+					<div class="slideText">
+						<h3>COMING SOON</h3>
+						<a href='#'><h1>The Daisies</h1></a>
+					</div>
+			</div>
+
+			<div class="slide">
+				<img src="https://c1.staticflickr.com/5/4134/4740016780_f650ccf8c6_z.jpg" width="500" />
+					<div class="slideText">
+						<h3>COMING SOON</h3>
+						<a href='#'><h1>Buggy Penny</h1></a>
+					</div>
+			</div>
+
+		</div>
+	</div>
+  	
+</body>
+</html>
