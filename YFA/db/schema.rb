@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716155304) do
+ActiveRecord::Schema.define(version: 20140716210616) do
 
   create_table "projects", force: true do |t|
     t.string   "title"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20140716155304) do
     t.datetime "updated_at"
     t.integer  "year"
     t.string   "college"
+    t.string   "interests"
+    t.text     "bio"
   end
 
 end

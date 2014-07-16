@@ -2,9 +2,11 @@ YFA::Application.routes.draw do
   
 resources :users
 
+root 'static_pages#home'  
+
   get "users/new"
 
-  root 'static_pages#home'
+  match '/crazy', to: 'users#edit', via: 'get'
 
   match '/logout', to: 'static_pages#logout', via: 'get'
 

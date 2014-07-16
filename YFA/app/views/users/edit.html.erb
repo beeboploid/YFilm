@@ -1,2 +1,48 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<%= render "layouts/header" %>
+
+<div class = "pure-g">
+
+	<div class = "pure-u-1 container">
+		<h1> Editing fun! </h1>
+
+		<div class = "pure-form">
+			
+			<%= form_for(@me) do |f| %>
+			
+			<h3>What are your interests?</h3>
+
+			<% interests = ["acting", "directing", "editing", "loving your fellow man"] %>
+				
+			<% interests.each do |i| %>
+				
+
+				<%= f.label i %>
+				<%= f.check_box :interests %>
+
+				<br>
+				
+
+			<% end %>
+
+
+			<% end %>
+
+
+
+
+
+
+
+
+
+
+		</div>
+
+		
+
+
+	</div>
+</div>
+
+
+
