@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  genre: MyString
+  description: MyText
+  dates: 2014-07-16 10:45:31
+  producer: 1
+  location: MyString
+
+two:
+  title: MyString
+  genre: MyString
+  description: MyText
+  dates: 2014-07-16 10:45:31
+  producer: 1
+  location: MyString

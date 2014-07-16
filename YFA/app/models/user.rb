@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   require 'net/ldap'
   
   # Associations
+  has_many :roles
+  has_many :projects, through: :roles
  
   # Validations
   validates_uniqueness_of :email, :message => "Conflicting email address."
