@@ -1,7 +1,21 @@
-<%= @me %> <br>
+<%= render "layouts/header" %>
 
-<%= @me.name %>
+<div class = "pure-g">
 
-<%= @me.netid %> <br>
-<%= @me.college %> <br>
-<%= @me.year %> <br>
+	<div class = "pure-u-1 container">
+		<h1>Hello, <%= @me.fname%></h1>
+		<p>
+		<%= @me.college %> <br>
+		<%= @me.year %> <br>
+		</p>
+
+
+		<h3>Interests</h3>
+
+		<h3>Filmography</h3>
+
+		
+
+
+	</div>
+</div>
