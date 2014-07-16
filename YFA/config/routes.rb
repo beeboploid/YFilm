@@ -6,6 +6,8 @@ resources :users
 
   root 'static_pages#home'
 
+  match '/logout', to: 'static_pages#logout', via: 'get'
+
   match '/profile', to: 'users#show', via: 'get'
 
   get "static_pages/new"
