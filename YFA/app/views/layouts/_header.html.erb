@@ -1,12 +1,17 @@
 <div class = "pure-g"> 
 	
-	<div class = "pure-u-1 pure-menu pure-menu-open pure-menu-horizontal">
+	<div class = "pure-u-1 pure-menu pure-menu-open pure-menu-horizontal" id="menu">
 		<ul>
 			<li><a href="#">YFA </a> </li>
-			<li> <%= link_to "log in", "/profile" %> </li>
-			<li> <%= link_to "log out", logout_path %> </li>
-			<li> <%= link_to "screenings", '#' %> </li>
-			<li><a href="#"> Projects </a> </li>
+			<% if !@signedin %>
+			<li> <%= link_to "Log In", "/profile" %> </li>
+			<% else %>
+			<li> <%= link_to "Log Out", logout_path %> </li>
+			<li> <%= link_to "Browse Users", '#' %> </li>
+			<% end %>
+
+			<li> <%= link_to "Screenings", '#' %> </li>
+			<li> <%= link_to "Projects", '#' %></li>
 		</ul>
 	</div>
 

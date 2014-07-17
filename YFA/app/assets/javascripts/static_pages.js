@@ -1,6 +1,6 @@
 $(document).ready(function() {
     		var currentPosition = 0;
-    		var slideWidth = 500;
+    		var slideWidth = 900;
     		var slides = $('.slide');
     		var numberOfSlides = slides.length;
     		var slideShowInterval;
