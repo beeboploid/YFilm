@@ -2,11 +2,7 @@ class UsersController < ApplicationController
   
 
   def index
-    redirect_to 'show'
-  end
-
-  def new
-  	
+    render 'show'
   end
 
   def signedin?
@@ -33,8 +29,8 @@ class UsersController < ApplicationController
   end
 
   def update
-     @me = User.find(params[:id])
-     @interest = @me.interest
+    @me = User.find(params[:id])
+    @interest = @me.interest
 
     @interest.update(interest_params)
     redirect_to user_path
