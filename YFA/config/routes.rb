@@ -12,6 +12,8 @@ root 'static_pages#home'
 
   match '/profile', to: 'users#show', via: 'get'
 
+  match '/profile', to: 'users#update', via: 'patch'
+
   get "static_pages/new"
   get "static_pages/create"
   

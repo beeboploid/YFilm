@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  acting: MyString
+  directing: MyString
+  editing: MyString
+  costumes: MyString
+  cinematography: MyString
+  camerawork: MyString
+  sound: MyString
+
+two:
+  acting: MyString
+  directing: MyString
+  editing: MyString
+  costumes: MyString
+  cinematography: MyString
+  camerawork: MyString
+  sound: MyString

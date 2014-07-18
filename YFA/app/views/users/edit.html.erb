@@ -6,25 +6,43 @@
 		<h1> Editing fun! </h1>
 
 		<div class = "pure-form">
-			
-			<%= form_for(@me) do |f| %>
+	
+			<%= form_for @interest, url: '/profile' do |f| %>
 			
 			<h3>What are your interests?</h3>
 
-			<% interests = ["acting", "directing", "editing", "loving your fellow man"] %>
-				
-			<% interests.each do |i| %>
-				
+			<%= f.hidden_field :id, value: @me.id %>
+			<!-- TAKE A LOOK AT THIS ^^ -->
 
-				<%= f.label i %>
-				<%= f.check_box :interests %>
+			<%= f.label "acting" %>
+			<%= f.check_box :acting %>
 
-				<br>
-				
-
-			<% end %>
+			<%= f.label "directing" %>
+			<%= f.check_box :directing %>
 
 
+			<%= f.label "editing" %>
+			<%= f.check_box :editing %>
+
+
+			<%= f.label "costumes" %>
+			<%= f.check_box :costumes %>
+
+
+			<%= f.label "cinematography" %>
+			<%= f.check_box :cinematography %>
+
+
+			<%= f.label "camerawork" %>
+			<%= f.check_box :camerawork %>
+
+
+			<%= f.label "sound engineering" %>
+			<%= f.check_box :sound %>
+
+
+
+			<%= f.submit "Save Changes", class: "button-signup pure-button" %>
 			<% end %>
 
 

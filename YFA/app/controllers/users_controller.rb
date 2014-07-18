@@ -12,19 +12,23 @@ class UsersController < ApplicationController
   end
 
   def create
-  	@user = User.new(me_params)
-  	@user.save
+  	@me = User.create(me_params)
+    @interest = @me.interest.create
   	# redirect_to 'show'
   end
 
   def show
-  	@user
+  	@me
   end
 
   def edit
+    @me = User.find(params[:id])
+    @interest = @me.interest
   end
 
   def update
+    @interest.update(interest_params)
+    redirect_to user_path
   end
 
  
@@ -33,9 +37,12 @@ class UsersController < ApplicationController
 
   		def me_params
   			params.require(:user).permit(:name, :netid, :college, :year, 
-                                      :email, :year, :college, :interests, :bio )
+                                      :email, :college, :bio )
   		end
 
+      def interest_params
+        params.require(:interest).permit(:acting, :directing, :camerawork, :cinematography, :costumes)
+      end
 
 
 

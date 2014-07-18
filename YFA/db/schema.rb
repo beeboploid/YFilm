@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716210616) do
+ActiveRecord::Schema.define(version: 20140718140953) do
+
+  create_table "interests", force: true do |t|
+    t.string   "acting"
+    t.string   "directing"
+    t.string   "editing"
+    t.string   "costumes"
+    t.string   "cinematography"
+    t.string   "camerawork"
+    t.string   "sound"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "projects", force: true do |t|
     t.string   "title"
@@ -41,7 +54,6 @@ ActiveRecord::Schema.define(version: 20140716210616) do
     t.datetime "updated_at"
     t.integer  "year"
     t.string   "college"
-    t.string   "interests"
     t.text     "bio"
   end
 
