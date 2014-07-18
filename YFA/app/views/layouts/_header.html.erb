@@ -2,13 +2,14 @@
 	
 	<div class = "pure-u-1 pure-menu pure-menu-open pure-menu-horizontal" id="menu">
 		<ul>
-			<li><a href="#">YFA </a> </li>
-			<li> <%= link_to "Log In", "/profile" %> </li>
+			<li><a href="/">YFA </a> </li>
+			<li> <%= link_to "Log In", users_path %> </li>
+			<li> <%= link_to "Profile", users_path %></li>
 			<li> <%= link_to "Log Out", logout_path %> </li>
 			<li> <%= link_to "Browse Users", '#' %> </li>
 
 			<li> <%= link_to "Screenings", '#' %> </li>
-			<li> <%= link_to "Projects", '#' %></li>
+			<li> <%= link_to "Projects", projects_path %></li>
 		</ul>
 	</div>
 

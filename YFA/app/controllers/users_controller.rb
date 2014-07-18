@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
-  def new
-  	redirect_to 'show'
+  
+
+  def index
+    @attributes = Interest.column_names
+    @attributes.reject! {|item| item =~ /id|user_id|updated_at|created_at/ }
+
+    render 'show'
   end
 
   def signedin?
@@ -18,16 +23,15 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@me
+    @attributes = Interest.column_names
+
   end
 
   def edit
-    @me = User.find(params[:id])
     @interest = @me.interest
   end
 
   def update
-    @me = User.find(params[:id])
     @interest = @me.interest
 
     @interest.update(interest_params)
@@ -44,7 +48,7 @@ class UsersController < ApplicationController
   		end
 
       def interest_params
-        params.require(:interest).permit(:acting, :directing, :camerawork, :cinematography, :costumes)
+        params.require(:interest).permit(:acting, :directing, :camerawork, :cinematography, :costumes, :sound)
       end
 
 

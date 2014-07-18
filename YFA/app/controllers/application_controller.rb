@@ -5,6 +5,7 @@ before_filter CASClient::Frameworks::Rails::Filter, :unless => :skip_login?
 
 # Add this before filter to set a local variable for the current user from CAS session
 before_filter :getMe, :unless => :skip_login?
+before_filter :getInterest, :unless => :skip_login?
 
 
 
@@ -22,6 +23,10 @@ def getMe
     redirect_to :root
     return false
   end
+end
+
+def getInterest
+	@interest ||= Interest.create(user_id: @me.id)
 end
  
 # hack for skip_before_filter with CAS

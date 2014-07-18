@@ -1,4 +1,4 @@
-<%= render "layouts/header" %>
+ <%= render "layouts/header" %>
 
 <div class = "pure-g">
 
@@ -7,7 +7,7 @@
 
 		<div class = "pure-form">
 	
-			<%= form_for @interest, url: '/profile' do |f| %>
+			<%= form_for @interest, url: user_path do |f| %>
 			
 			<h3>What are your interests?</h3>
 
@@ -37,7 +37,7 @@
 			<%= f.check_box :camerawork %>
 
 
-			<%= f.label "sound engineering" %>
+			<%= f.label "sound" %>
 			<%= f.check_box :sound %>
 
 

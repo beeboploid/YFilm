@@ -1,18 +1,16 @@
 YFA::Application.routes.draw do
-  
-resources :users
 
-root 'static_pages#home'  
+resources :users
+resources :interests
+resources :projects
+
+root 'static_pages#home'
 
   get "users/new"
 
-  match '/crazy', to: 'users#edit', via: 'get'
+  match '/edit', to: 'users#edit', via: 'get'
 
   match '/logout', to: 'static_pages#logout', via: 'get'
-
-  match '/profile', to: 'users#show', via: 'get'
-
-  match '/profile', to: 'users#update', via: 'patch'
 
   get "static_pages/new"
   get "static_pages/create"

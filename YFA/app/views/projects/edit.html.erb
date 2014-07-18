@@ -1,0 +1,38 @@
+<%= render "layouts/header" %>
+
+<div class = "pure-g">
+
+	<div class = "pure-u-1 container">
+		<h1> Edit "<%= @project.title %>" project </h1>
+
+		<div class = "pure-form">
+	
+			<%= @me.id %>
+
+			<%= form_for(@project) do |f| %>
+				<%= f.hidden_field :id, value: @me.id %>
+
+				<%= f.text_field :title, :placeholder => "Project title", :class => "pure-input" %>
+
+				<%= f.label "Genre: "%>
+				<%= f.select :genre, options_for_select([["Other", "Other"], ["Comedy", "Comedy"], ["Documentary", "Documentary"], ["Drama", "Drama"] ], :class => "fields") %>
+
+				<p> <%= f.text_area :description, :placeholder => "Describe the project", :class => "pure-input" %> </p>
+
+				<p> <%= f.text_field :dates, :placeholder => "Dates", :class => "pure-input" %> </p>
+
+				<p> <%= f.text_field :location, :placeholder => "Location", :class => "pure-input" %> </p>
+
+				<p> Upload Picture </p>
+				<p> Upload Script </p>
+
+				<p> Producer: <%= @me.name %></p>
+
+			<%= f.submit "Save changes", class: "pure-button" %>
+			<% end %>
+
+
+		</div>
+
+	</div>
+</div>
