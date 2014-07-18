@@ -1,9 +1,8 @@
 YFA::Application.routes.draw do
 
-
-
 resources :users
 resources :interests
+resources :projects
 
 root 'static_pages#home'
 

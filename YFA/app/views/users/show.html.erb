@@ -3,7 +3,7 @@
 
 <div class = "pure-g">
 <div class = "pure-u-1 container">
-	<div>
+	
 		<h1>Hello, <%= @me.name%></h1>
 		<p>
 		<%= @me.college %> <br>
@@ -11,13 +11,6 @@
 
 		</p>
 
-	</div>
-
-</div>
-</div>
-		
-	
-		<div class = "pure-g interests">
 
 		<h3>Interests</h3>
 		
@@ -33,13 +26,24 @@
 		
 			<h3>Filmography</h3>
 
-		<h4> <%= link_to "Edit your information, my friend!", edit_user_path(@me) %></h4>
+			<% @me.projects.each do |project| %>
+				<p><%= link_to project.title, project_path(project.id)%></p>
+			<% end %>
+
+		<h2> <%= link_to "Edit your information, friend!", edit_user_path(@me) %></h2>
+		<%= link_to "Create a Project", new_project_path, class: "pure-button" %>
+
+
 
 		</div>
 		
 	
+</div>
+</div>
+		
 
-	
+
+		
 
 		
 
