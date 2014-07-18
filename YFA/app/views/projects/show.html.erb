@@ -1,0 +1,18 @@
+<%= render "layouts/header" %>
+
+<div class = "pure-g">
+
+	<div class = "pure-u-1 container">
+		<h1> <%= @project.title %> </h1>
+
+		Genre: <%= @project.genre %><br>
+		Description: <%= @project.description %> <br>
+		Dates: <%= @project.dates %><br>
+		Location: <%= @project.location %><br>
+		Producer: <%= @project.producer %><br>
+
+		<h2> <%= link_to "Edit this project", edit_project_path(@project) %></h2>
+
+
+	</div>
+</div>
