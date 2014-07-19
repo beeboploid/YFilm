@@ -6,9 +6,9 @@
 			<% if !signedin? %>
 			<li> <%= link_to "Log In", users_path %> </li>
 			<% else %>
-			<li> <%= link_to "Profile", users_path %></li>
+			<li> <%= link_to "Profile", user_path(session[:cas_user]) %></li>
 			<li> <%= link_to "Log Out", logout_path %> </li>
-			<li> <%= link_to "Browse Users", '#' %> </li>
+			<li> <%= link_to "Browse Users", users_path %> </li>
 			<% end %>
 			<li> <%= link_to "Screenings", '#' %> </li>
 			<li> <%= link_to "Projects", projects_path %></li>
