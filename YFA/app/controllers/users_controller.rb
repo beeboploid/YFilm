@@ -2,10 +2,7 @@ class UsersController < ApplicationController
   
 
   def index
-    @attributes = Interest.column_names
-    @attributes.reject! {|item| item =~ /id|user_id|updated_at|created_at/ }
-
-    render 'show'
+    
   end
 
 
@@ -17,7 +14,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @me = User.find(params[:id])
     @attributes = Interest.column_names
+    @attributes.reject! {|item| item =~ /id|user_id|updated_at|created_at/ }
 
   end
 
@@ -42,7 +41,7 @@ class UsersController < ApplicationController
   		end
 
       def interest_params
-        params.require(:interest).permit(:acting, :directing, :camerawork, :cinematography, :costumes, :sound)
+        params.require(:interest).permit(:acting, :directing, :camerawork, :cinematography, :costumes, :sound, :editing)
       end
 
 
