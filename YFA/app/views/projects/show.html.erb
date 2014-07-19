@@ -13,11 +13,31 @@
 
 		<h2> Roles </h2>
 
-		<% @project.roles.each do |r| %>
+		<div class = "pure-u-1-3">
+			<h2> Cast </h2>
 
-			<%= r.title %>
+			<% @project.roles.each do |r| %>
 
-		<% end %>
+				<p>
+
+				<% if r.cast == true %>
+					<%= r.title %> 
+				<% end %> </p>
+			<% end %>
+
+		</div>
+
+		<div class = "pure-u-1-3">
+			<h2> Crew </h2>
+			<% @project.roles.each do |r| %>
+
+				<p>
+				<% if r.cast == false %>
+					<%= r.title %> 
+				<% end %> </p>
+			<% end %>
+
+		</div>
 
 		<h2> <%= link_to "Edit this project", edit_project_path(@project) %></h2>
 
@@ -26,6 +46,10 @@
 		<%= form_for(@role) do |f| %>
 			<%= f.text_field :title, placeholder: "Role title" %>
 			<%= f.hidden_field :id, value: @project.id %>
+			<%= f.radio_button :cast, true %>
+			<%= f.label "Cast?" %>
+			<%= f.radio_button :cast, false %>
+			<%= f.label "Crew?" %>
 			<%= f.submit "Add role", class: "pure-button" %>
 		<% end %>
 
