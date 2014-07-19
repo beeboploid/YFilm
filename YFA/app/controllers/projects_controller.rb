@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
 	def show
 		@me = User.find_or_create_by_netid( session[:cas_user] )
 		@project = @me.projects.find(params[:id])		
-
+  		@role = @project.roles.create #if signed_in?
 		#NOTE: find_by(params[:id]) doesn't work! @me.projects.find_by(id: params[:id]) OR @me.projects.find(params[:id]) are equivalent syntax.
 	end
 

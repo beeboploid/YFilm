@@ -11,8 +11,23 @@
 		Location: <%= @project.location %><br>
 		Producer: <%= @project.producer %><br>
 
+		<h2> Roles </h2>
+
+		<% @project.roles.each do |r| %>
+
+			<%= r.title %>
+
+		<% end %>
+
 		<h2> <%= link_to "Edit this project", edit_project_path(@project) %></h2>
 
+		<h3> Add Roles </h3>
+
+		<%= form_for(@role) do |f| %>
+			<%= f.text_field :title, placeholder: "Role title" %>
+			<%= f.hidden_field :id, value: @project.id %>
+			<%= f.submit "Add role", class: "pure-button" %>
+		<% end %>
 
 	</div>
 </div>

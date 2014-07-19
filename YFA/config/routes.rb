@@ -3,6 +3,7 @@ YFA::Application.routes.draw do
 resources :users
 resources :interests
 resources :projects
+resources :roles
 
 root 'static_pages#home'
 
