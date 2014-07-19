@@ -11,6 +11,5 @@ class StaticPagesController < ApplicationController
   	reset_session
   	redirect_to "https://secure.its.yale.edu/cas/logout" 
   end
-
   
 end

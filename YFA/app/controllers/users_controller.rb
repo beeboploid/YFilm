@@ -8,13 +8,7 @@ class UsersController < ApplicationController
     render 'show'
   end
 
-  def signedin?
-    if session[:cas_user].exists? 
-      return true
-    else
-      return false
-    end
-  end
+
 
   def create
   	@me = User.create(me_params)
