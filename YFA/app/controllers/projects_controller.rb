@@ -19,6 +19,9 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
+
+		
+
 		@project = Project.find(params[:id])
 		@producer_id = Role.find_by(project_id: @project.id).user_id
 		@producer = User.find_by(id: @producer_id)

@@ -9,7 +9,10 @@ class RolesController < ApplicationController
   end
 
   def update
-    @r = Role.find(params[:id]).update(role_params)
+    
+    @r = Role.find(params[:id])
+    @r.update(role_params)
+
     redirect_to project_path(@r.project_id)
 
   end
