@@ -8,13 +8,19 @@ class RolesController < ApplicationController
   	redirect_to project_path(@project)
   end
 
+  def update
+    @r = Role.find(params[:id]).update(role_params)
+    redirect_to project_path(@r.project_id)
+
+  end
+
   def edit
   end
 
   	private
 
   	def role_params
-  		params.require(:role).permit(:title, :cast, :id)
+  		params.require(:role).permit(:title, :cast, :id, :user_id)
   	end
 
 end
