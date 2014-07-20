@@ -6,11 +6,9 @@ class UsersController < ApplicationController
   end
 
 
-
   def create
-  	@me = User.create(me_params)
+  	@me = User.create(me_params) #We need to validate that fname, etc is NOT NIL, to prevent ghost users
     @interest = @me.interest.create
-  	# redirect_to 'show'
   end
 
   def show

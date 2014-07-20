@@ -7,7 +7,7 @@
 	<h1> All Filmmakers </h1>
 		
 		<% User.all.each do |u| %>
-			<p><%= link_to u.name, user_path(u.id)%></p>
+			<p><%= link_to u.fname, user_path(u.id)%></p>
 		<% end %>
 
 	</div>

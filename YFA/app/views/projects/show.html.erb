@@ -9,7 +9,7 @@
 		Description: <%= @project.description %> <br>
 		Dates: <%= @project.dates %><br>
 		Location: <%= @project.location %><br>
-		Producer: <%= @project.producer %><br>
+		Producer: <%= @producer.name %><br>
 
 		<h2> Roles </h2>
 
@@ -39,19 +39,23 @@
 
 		</div>
 
-		<h2> <%= link_to "Edit this project", edit_project_path(@project) %></h2>
+	<% if signedin? && current_user == @producer_id %>
 
-		<h3> Add Roles </h3>
+			<h2> <%= link_to "Edit this project", edit_project_path(@project) %></h2>
 
-		<%= form_for(@role) do |f| %>
-			<%= f.text_field :title, placeholder: "Role title" %>
-			<%= f.hidden_field :id, value: @project.id %>
-			<%= f.radio_button :cast, true %>
-			<%= f.label "Cast?" %>
-			<%= f.radio_button :cast, false %>
-			<%= f.label "Crew?" %>
-			<%= f.submit "Add role", class: "pure-button" %>
-		<% end %>
+			<h3> Add Roles </h3>
 
-	</div>
+			<%= form_for(@role) do |f| %>
+				<%= f.text_field :title, placeholder: "Role title" %>
+				<%= f.hidden_field :id, value: @project.id %>
+				<%= f.radio_button :cast, true %>
+				<%= f.label "Cast?" %>
+				<%= f.radio_button :cast, false %>
+				<%= f.label "Crew?" %>
+				<%= f.submit "Add role", class: "pure-button" %>
+			<% end %>
+
+		</div>
+
+	<% end %>
 </div>
