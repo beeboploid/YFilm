@@ -1,13 +1,20 @@
 YFA::Application.routes.draw do
 
+  get "auditions/new"
+  get "auditions/create"
+  get "auditions/edit"
+  get "auditions/update"
 resources :users
 resources :interests
 resources :projects
 resources :roles
+resources :auditions
 
 root 'static_pages#home'
 
   get "users/new"
+
+
 
   match '/edit', to: 'users#edit', via: 'get'
 

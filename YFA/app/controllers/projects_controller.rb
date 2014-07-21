@@ -20,8 +20,6 @@ class ProjectsController < ApplicationController
 
 	def show
 
-		
-
 		@project = Project.find(params[:id])
 		@producer_id = Role.find_by(project_id: @project.id).user_id
 		@producer = User.find_by(id: @producer_id)
@@ -39,6 +37,10 @@ class ProjectsController < ApplicationController
 		@me = User.find_or_create_by_netid( session[:cas_user] ) #Possible refactor: create an application helper that calls @me when we need it?
 		@project = @me.projects.find(params[:id])	
 	end
+
+  	def audition
+    
+  	end
 
 	def update
 		@me = User.find_or_create_by_netid( session[:cas_user] )

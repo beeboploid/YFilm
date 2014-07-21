@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :roles
   has_many :projects, through: :roles
   has_one :interest
+  has_many :auditions
  
   # Validations
   validates_uniqueness_of :email, :message => "Conflicting email address."
