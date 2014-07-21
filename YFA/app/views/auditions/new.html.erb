@@ -16,10 +16,14 @@ $(document).ready(function(){
 
 		<%= form_for(@audition) do |f| %>
 
-			<p>Datetime: <input id="datetimepicker" type="text"> </p>
+			<p>Datetime: <input id="datetimepicker" name="audition[when]" type="text"> </p>
+
+			<%= f.hidden_field :project_id, value: params[:project]  %>
 			<%= f.submit "Add audition", class: "pure-button" %>
 		
 		<% end %>
+
+		<%= params[:project] %>
 
 
 		
