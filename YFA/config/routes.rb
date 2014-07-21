@@ -1,9 +1,5 @@
 YFA::Application.routes.draw do
 
-  get "auditions/new"
-  get "auditions/create"
-  get "auditions/edit"
-  get "auditions/update"
 resources :users
 resources :interests
 resources :projects
@@ -14,7 +10,7 @@ root 'static_pages#home'
 
   get "users/new"
 
-
+  match '/projects/:id/auditions', to: 'auditions#show', via: 'get'
 
   match '/edit', to: 'users#edit', via: 'get'
 

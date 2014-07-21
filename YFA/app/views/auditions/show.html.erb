@@ -1,1 +1,15 @@
-<%= @audition %>
+<%= render 'layouts/header' %>
+
+	<h1>Auditions</h1>
+
+		<% Audition.where(project_id: params[:id]).each do |a| %>
+
+			<p><%= a.when.strftime("%A, %B %d, %Y at %l%p") %></p>
+			<%= form_for(a) do |t| %>
+				<%= t.hidden_field :id, value: a.id %>
+				<%= t.hidden_field :user_id, value: @me.id %>
+				<%= t.hidden_field :user_name, value: @me.name %>
+			<%= t.submit "Sign up", class: "pure-button" %>
+			<% end %>
+
+		<% end %>
