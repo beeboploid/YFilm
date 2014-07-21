@@ -77,6 +77,7 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    rmagick (2.13.2)
     rubycas-client (2.3.9)
       activesupport
     sass (3.2.19)
@@ -107,7 +108,7 @@ GEM
     turbolinks (2.2.2)
       coffee-rails
     tzinfo (0.3.40)
-    uglifier (2.5.1)
+    uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
 
@@ -121,6 +122,7 @@ DEPENDENCIES
   jquery-rails
   net-ldap
   rails (= 4.0.8)
+  rmagick
   rubycas-client
   sass-rails (~> 4.0.2)
   sdoc

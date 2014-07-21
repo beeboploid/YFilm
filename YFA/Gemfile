@@ -9,7 +9,7 @@ gem 'net-ldap'
 gem 'rubycas-client'
 
 # For Image uploads. On OSX, also need to: 'brew install imagemagick' in terminal
-gem 'rmagick'
+gem 'rmagick', :require => 'RMagick'
 gem 'carrierwave'
 
 # Use sqlite3 as the database for Active Record
