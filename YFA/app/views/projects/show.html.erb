@@ -29,8 +29,14 @@
 						<% @user = User.find(r.user_id) %> <%= @user.name %>
 						<% end %>
 
+						<% auditions = @project.auditions %>
+						<% array = [] %>
+
+						<% auditioners = auditions.each {|a| array.push( [a.user_name, a.user_id])} %>
+						
 						<%= form_for(r) do |f| %>
-							<%= f.text_field :user_id, placeholder: "Choose an actor" %>
+							<%= f.label "Choose an actor" %>
+							<%= f.select :user_id, options_for_select(array) %>
 							<%= f.submit "Cast!", class: "pure-button" %>
 						<% end %>
 

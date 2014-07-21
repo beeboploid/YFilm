@@ -7,9 +7,7 @@ class AuditionsController < ApplicationController
   def create
   	@audition = Audition.create(audition_params)
 
- #  	@project = Project.find_by(id: params[:project_id])
-	# @project.auditions.create(audition_params)
-	redirect_to audition_path(@audition)
+	redirect_to '/projects/' + audition_params[:project_id].to_s + '/auditions'
   end
 
   def show
@@ -28,12 +26,16 @@ class AuditionsController < ApplicationController
   end
 
   def update
+    @audition = Audition.find(audition_params[:id])
+    @audition.update(audition_params)
+
+    redirect_to project_path(@audition.project_id)
   end
 
   private
 
   	def audition_params
-  		params.require(:audition).permit(:project_id, :user_id, :user_name, :when)
+  		params.require(:audition).permit(:id, :project_id, :user_id, :user_name, :when)
   	end
 
 
