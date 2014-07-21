@@ -1,6 +1,41 @@
+
+
 <%= render "layouts/header" %>
 
-<h1>Auditions</h1>
+<div class = "pure-g">
+
+	<div class = "pure-u-1 container">
+
+		<h1>Add audition slots</h1>
+
+		<%= form_for(@audition) do |f| %>
+
+			<p>Date: <input type="text" id="datepicker"></p>
+
+			<div id="datepicker"></div>
 
 
+		<%= f.submit "Add audition", class: "pure-button" %>
+		
+		<% end %>
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+	
+</div>
 
