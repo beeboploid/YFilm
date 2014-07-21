@@ -1,4 +1,10 @@
-
+<link rel="stylesheet" type="text/css" href="/jquery/jquery.datetimepicker.css" />
+<script src="/jquery/jquery.datetimepicker.js"></script>
+<script>
+$(document).ready(function(){
+	$('#datetimepicker').datetimepicker();
+});
+</script>
 
 <%= render "layouts/header" %>
 
@@ -10,12 +16,8 @@
 
 		<%= form_for(@audition) do |f| %>
 
-			<p>Date: <input type="text" id="datepicker"></p>
-
-			<div id="datepicker"></div>
-
-
-		<%= f.submit "Add audition", class: "pure-button" %>
+			<p>Datetime: <input id="datetimepicker" type="text"> </p>
+			<%= f.submit "Add audition", class: "pure-button" %>
 		
 		<% end %>
 
