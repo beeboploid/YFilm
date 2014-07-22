@@ -71,6 +71,7 @@
 						<% applicants = crew_roles.each {|r| crew_role_array.push( [r.title, r.id] )} %>
 
 						<%= form_for(@audition) do |f| %>
+							<%= f.hidden_field :project_id, value: @project.id %>
 							<%= f.hidden_field :user_id, value: @me.id %>
 							<%= f.select :role_id, options_for_select(crew_role_array) %>
 							<%= f.submit "Join us!", class: "pure-button" %>
