@@ -1,35 +1,18 @@
 	<div id="slideshow">
 		<div id="slideshowWindow">
 
+		<% display_project = Project.all %>
+		<% display_project.each do |p| %>
 			<div class="slide">
-				<img src="http://www.lesmiserablesfilm.com/splash/images/gallery/img24.jpg?01AD=3txrHM6G_9RAmzHkr4a0mNG94LatCMYGcdj5BUb4g1fp6jhyM_-63Aw&01RI=69C04CBA7BDBBA2&01NA=" width="900" />
-					<div class="slideText">
-						<div class="slideHeader">
-							<h3>NOW PLAYING</h3>
-						</div>
-						<a href='#'><h1>Les Miserables</h1></a>
+				<%= image_tag p.image_url.to_s %>
+				<div class="slideText">
+					<div class="slideHeader">
+						<h3>COMING SOON</h3>
 					</div>
+				<h1><%= link_to p.title, project_path(p.id)%></h1>
+				</div>
 			</div>
-
-			<div class="slide">
-				<img src="http://www.cosmopolitan.co.uk/cm/cosmopolitanuk/images/wq/an-education-student-film-lrg.jpg" width="900" />
-					<div class="slideText">
-						<div class="slideHeader">
-							<h3>COMING SOON</h3>
-						</div>
-						<a href='#'><h1>100 Days of Summer</h1></a>
-					</div>
-			</div>
-
-			<div class="slide">
-				<img src="https://c1.staticflickr.com/5/4134/4740016780_f650ccf8c6_z.jpg" width="900" />
-					<div class="slideText">
-						<div class="slideHeader">
-							<h3>COMING SOON</h3>
-						</div>
-						<a href='#'><h1>Lucky Penny</h1></a>
-					</div>
-			</div>
+		<%end%>
 
 		</div>
 	</div>

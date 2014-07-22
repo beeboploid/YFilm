@@ -45,13 +45,20 @@ class ProjectsController < ApplicationController
 	def update
 		@me = User.find_or_create_by_netid( session[:cas_user] )
 		@project = @me.projects.find(params[:id])
-		@project.update(project_params)	
+		@project.update(project_params)
 		redirect_to project_path(@project)
+	end
+
+	def destroy
+		@me = User.find_or_create_by_netid( session[:cas_user] )
+		@project = @me.projects.find(params[:id])
+		@project.destroy
+		redirect_to user_path(current_user)
 	end
 
 	private
 
 	def project_params
-        params.require(:project).permit(:title, :genre, :description, :dates, :producer, :location)
+        params.require(:project).permit(:title, :genre, :description, :dates, :producer, :location, :image)
     end
 end

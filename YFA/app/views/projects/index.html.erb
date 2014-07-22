@@ -7,6 +7,7 @@
 	<div class = "pure-u-1-4 project">
 		<p><%= link_to p.title, project_path(p.id)%></p>
 		<p> <%= p.genre %> </p>
+		<%= image_tag p.image_url(:thumb).to_s %>
 		<p> <%= p.description %> </p>
 		<p> <%= p.dates %> </p> 
 
