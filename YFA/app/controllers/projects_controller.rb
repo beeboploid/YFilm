@@ -5,6 +5,9 @@ class ProjectsController < ApplicationController
   	end
 
 	def index
+		@movie = Project.where(nil) #creates an anonymous scope
+		@movie = @movie.find_project(params[:title]) if params[:title].present?
+
 	end
 	
 	def new
@@ -57,9 +60,10 @@ class ProjectsController < ApplicationController
 		redirect_to user_path(current_user)
 	end
 
-	private
+  private
 
-	def project_params
-        params.require(:project).permit(:title, :genre, :description, :dates, :producer, :location, :image)
-    end
+		def project_params
+	        params.require(:project).permit(:title, :genre, :description, :dates, :producer, :location, :image)
+	    end
+
 end

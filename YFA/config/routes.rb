@@ -10,6 +10,11 @@ root 'static_pages#home'
 
   get "users/new"
 
+  match '/search', to: 'projects#search', via: 'get'
+
+  match '/search', to: 'projects#search', via: 'post'
+
+
   match '/projects/:id/auditions', to: 'auditions#show', via: 'get'
 
   match '/edit', to: 'users#edit', via: 'get'

@@ -1,7 +1,17 @@
 <%= render 'layouts/header' %>
 <h1> Projects </h1>
 
+
+<% @movie.each do |f| %>
+
+	<p><%= link_to f.title, project_path(f.id) %></p>
+
+	<% end %>
+
+
 <div class = "pure-g">
+
+
 <% Project.all.each do |p| %>
 
 	<div class = "pure-u-1-4 project">

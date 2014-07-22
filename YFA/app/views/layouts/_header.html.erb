@@ -12,6 +12,12 @@
 			<% end %>
 			<li> <%= link_to "Screenings", '#' %> </li>
 			<li> <%= link_to "Projects", projects_path %></li>
+			<li> <%= form_tag("/search", method: "get") do %>
+				  <%= text_field_tag(:title) %>
+				  <%= submit_tag("Search") %>
+				  <% end %> </li>
+
+
 		</ul>
 	</div>
 
