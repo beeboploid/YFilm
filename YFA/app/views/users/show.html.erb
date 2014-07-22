@@ -5,9 +5,11 @@
 <div class = "pure-u-1 container">
 	
 		<h1>Hello, <%= @me.name%></h1>
+		<%= image_tag @me.image_url.to_s %>
 		<p>
 		<%= @me.college %> <br>
 		<%= @me.year %> <br>
+		<%= mail_to @me.email, "Email me!" %>
 
 		</p>
 
@@ -26,8 +28,23 @@
 		
 			<h3>Filmography</h3>
 
-			<% @me.projects.each do |project| %>
-				<p><%= link_to project.title, project_path(project.id)%></p>
+			<% @me.projects.distinct.each do |project| %>
+				<% my_roles = project.roles.where(user_id: @me.id) %>
+
+				<p><%= link_to project.title, project_path(project.id)%> | 
+
+					<% array = [] %>
+					<% my_roles.each do |r| %>
+						<% if r.title == nil %>
+							<% array.push("Producer")%>
+						<% else %>
+							<% array.push(r.title) %>
+						<% end %> 
+					<% end %>
+
+					<%= array.join(", ") %>
+				</p>
+
 			<% end %>
 
 	
@@ -49,12 +66,17 @@
 
 						<% if a.role_id == nil && a.user_id != nil %>
 							<p>	<%= link_to a.user_name, user_path(a.user_id) %> 
-								<%= " has an audition on #{ a.when.strftime("%A, %B %d, %Y at %l%p") }" %></p>
+								<%= " has an audition on #{ a.when.strftime("%B %d at %l%p") } 
+								for " %>
+								<%= link_to p.title, "/projects/#{p.id}/auditions" %>
+							</p>
 						<% elsif a.role_id != nil %>
 							<% crew_position = Role.find(a.role_id).title %>
 							<% crew_user = User.find(a.user_id).name %>
 							<p>	<%= link_to crew_user, user_path(a.user_id) %>
-								<%= " wants to be your #{crew_position}" %></p>					
+								<%= " wants to be your #{crew_position} for " %>
+								<%= p.title %>
+							</p>					
 						<% end %>
 
 					<% end %>

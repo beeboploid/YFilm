@@ -7,50 +7,47 @@
 
 		<div class = "pure-form">
 	
-			<%= form_for @interest, url: user_path do |f| %>
+			<%= form_for(@me) do |f| %>
+
+			<p> <%= f.label "Upload your headshot!" %> <br>
+				 	<%= f.file_field :image %> </p>
 			
 			<h3>What are your interests?</h3>
 
 			<%= f.hidden_field :id, value: @me.id %>
 			<!-- TAKE A LOOK AT THIS ^^ -->
 
-			<p><%= f.label "acting" %>
-			<%= f.check_box :acting %></p> 
+			<%= f.fields_for :interest do |ff| %>
+				<p><%= ff.label "acting" %>
+				<%= ff.check_box :acting %></p> 
 
-			<p><%= f.label "directing" %>
-			<%= f.check_box :directing %></p>
-
-
-			<p><%= f.label "editing" %>
-			<%= f.check_box :editing %></p>
+				<p><%= ff.label "directing" %>
+				<%= ff.check_box :directing %></p>
 
 
-			<p><%= f.label "costumes" %>
-			<%= f.check_box :costumes %></p>
+				<p><%= ff.label "editing" %>
+				<%= ff.check_box :editing %></p>
 
 
-			<p><%= f.label "cinematography" %>
-			<%= f.check_box :cinematography %></p>
+				<p><%= ff.label "costumes" %>
+				<%= ff.check_box :costumes %></p>
 
 
-			<p><%= f.label "camerawork" %>
-			<%= f.check_box :camerawork %></p>
+				<p><%= ff.label "cinematography" %>
+				<%= ff.check_box :cinematography %></p>
 
 
-			<p><%= f.label "sound" %>
-			<%= f.check_box :sound %></p>
+				<p><%= ff.label "camerawork" %>
+				<%= ff.check_box :camerawork %></p>
 
 
+				<p><%= ff.label "sound" %>
+				<%= ff.check_box :sound %></p>
 
-			<%= f.submit "Save Changes", class: "button-signup pure-button" %>
 			<% end %>
 
-
-
-
-
-
-
+				<%= f.submit "Save Changes", class: "pure-button" %>
+			<% end %>
 
 
 

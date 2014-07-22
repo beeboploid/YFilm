@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722140754) do
+ActiveRecord::Schema.define(version: 20140722203406) do
 
   create_table "auditions", force: true do |t|
     t.integer  "project_id"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20140722140754) do
     t.integer  "year"
     t.string   "college"
     t.text     "bio"
+    t.string   "image"
   end
 
 end

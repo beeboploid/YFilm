@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   has_many :projects, through: :roles
   has_one :interest
   has_many :auditions
+  mount_uploader :image, ImageUploader
+
+  accepts_nested_attributes_for :interest
  
   # Validations
   validates_uniqueness_of :email, :message => "Conflicting email address."
