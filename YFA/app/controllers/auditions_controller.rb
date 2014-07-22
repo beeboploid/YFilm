@@ -17,6 +17,8 @@ class AuditionsController < ApplicationController
   def show
 
   	@audition
+    @project = Project.find(params[:id])
+    @producer_id = Role.find_by(project_id: @project.id).user_id
 
   end
 
