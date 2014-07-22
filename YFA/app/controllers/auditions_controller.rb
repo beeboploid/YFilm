@@ -7,7 +7,7 @@ class AuditionsController < ApplicationController
   def create
   	@audition = Audition.create(audition_params)
 
-	redirect_to '/projects/' + audition_params[:project_id].to_s + '/auditions'
+    redirect_to '/projects/' + audition_params[:project_id].to_s + '/auditions'
   end
 
   def show
@@ -35,7 +35,7 @@ class AuditionsController < ApplicationController
   private
 
   	def audition_params
-  		params.require(:audition).permit(:id, :project_id, :user_id, :user_name, :when)
+  		params.require(:audition).permit(:id, :project_id, :user_id, :user_name, :when, :role_id)
   	end
 
 
