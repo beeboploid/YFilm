@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
-  require 'net/ldap'
+  validates :name, presence: true, length: { maximum: 50 } #these are simply methods
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[yale]+\.[edu]+\z/i
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+
+
 
    
   
