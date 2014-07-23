@@ -12,7 +12,14 @@ class UsersController < ApplicationController
 
 
   def create
-  	@me = User.create(me_params) #We need to validate that fname, etc is NOT NIL, to prevent ghost users
+    @me = User.new(me_params)
+    if @me.save
+      flash[:success] = "Welcome to the YFA!"
+      redirect_to @me
+    else
+      render 'new'
+    end
+  	# @me = User.create(me_params) #We need to validate that fname, etc is NOT NIL, to prevent ghost users
     @interest = @me.interest.create
   end
 
@@ -44,8 +51,8 @@ class UsersController < ApplicationController
   	private
 
   		def me_params
-  			params.require(:user).permit(:name, :netid, :college, :year, 
-                                      :email, :college, :bio )
+  			params.require(:user).permit( :name, :fname, :lname :college, :year, 
+                                      :email, :college, :bio, :password, :password_confirmation )
   		end
 
       def interest_params
