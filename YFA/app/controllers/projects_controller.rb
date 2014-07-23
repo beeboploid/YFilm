@@ -6,6 +6,15 @@ class ProjectsController < ApplicationController
 
 	def index
 	end
+
+	def search
+		@movie = Project.where(nil) #creates an anonymous scope
+		@movie = @movie.find_project(params[:search]) if params[:search].present?
+		@person = User.where(fname: params[:search]) if params[:search].present?
+		@person = @person + User.where(lname: params[:search]) if params[:search].present?
+
+	end
+
 	
 	def new
 		@me = User.find_or_create_by_netid( session[:cas_user] )
@@ -57,9 +66,10 @@ class ProjectsController < ApplicationController
 		redirect_to user_path(current_user)
 	end
 
-	private
+  private
 
 	def project_params
         params.require(:project).permit(:title, :genre, :description, :dates, :producer, :location, :image, :remote_image_url)
     end
+
 end

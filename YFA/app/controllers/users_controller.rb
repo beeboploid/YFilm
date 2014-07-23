@@ -11,6 +11,10 @@ class UsersController < ApplicationController
     @interest = @me.interest.create
   end
 
+  def search
+
+  end
+
   def show
     @me = User.find(params[:id])
     @attributes = Interest.column_names

@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   require 'net/ldap'
+
+   
   
   # Associations
   has_many :roles
