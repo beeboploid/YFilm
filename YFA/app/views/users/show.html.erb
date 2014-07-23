@@ -5,11 +5,15 @@
 <div class = "pure-u-1 container">
 	
 		<h1>Hello, <%= @me.name%></h1>
-		<%= image_tag @me.image_url.to_s %>
+		<%= image_tag @me.image_url(:thumb).to_s %>
 		<p>
 		<%= @me.college %> <br>
 		<%= @me.year %> <br>
 		<%= mail_to @me.email, "Email me!" %>
+
+		</p>
+		<%= @me.bio %> <br>
+		<p>
 
 		</p>
 

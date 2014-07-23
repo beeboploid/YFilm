@@ -7,8 +7,6 @@
 
 		<div class = "pure-form">
 	
-			<%= @me.id %>
-
 			<%= form_for(@project) do |f| %>
 				<%= f.hidden_field :id, value: @me.id %>
 
@@ -24,9 +22,7 @@
 				<p> <%= f.text_field :location, :placeholder => "Location", :class => "pure-input" %> </p>
 
 				<p> <%= f.file_field :image %> </p>
-				<p> Upload Script </p>
-
-				<p> Producer: <%= @me.name %></p>
+				<p> Coming Soon: Upload your script! </p>
 
 			<%= f.submit "Create Project", class: "pure-button" %>
 			<% end %>

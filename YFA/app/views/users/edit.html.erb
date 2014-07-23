@@ -9,15 +9,22 @@
 	
 			<%= form_for(@me) do |f| %>
 
-			<p> <%= f.label "Upload your headshot!" %> <br>
-				 	<%= f.file_field :image %> </p>
-			
+			<p> 
+			<%= f.label "Upload your headshot!" %> <br>
+			<%= f.file_field :image %> 
+			</p>
+
+			<p> 
+			<%= f.label "Describe yourself" %> <br>
+			<%= f.text_area :bio %> 
+			</p>
+
 			<h3>What are your interests?</h3>
 
 			<%= f.hidden_field :id, value: @me.id %>
 			<!-- TAKE A LOOK AT THIS ^^ -->
 
-			<%= f.fields_for :interest do |ff| %>
+			<%= fields_for(@interest) do |ff| %>
 				<p><%= ff.label "acting" %>
 				<%= ff.check_box :acting %></p> 
 
@@ -44,9 +51,8 @@
 				<p><%= ff.label "sound" %>
 				<%= ff.check_box :sound %></p>
 
-			<% end %>
-
 				<%= f.submit "Save Changes", class: "pure-button" %>
+			<% end %>
 			<% end %>
 
 
