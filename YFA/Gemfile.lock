@@ -26,6 +26,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     arel (4.0.2)
+    bcrypt-ruby (3.1.2)
     builder (3.1.4)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
@@ -128,6 +129,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby (= 3.1.2)
   carrierwave
   coffee-rails (~> 4.0.0)
   elasticsearch
@@ -140,6 +142,7 @@ DEPENDENCIES
   rubycas-client
   sass-rails (~> 4.0.2)
   sdoc
+  sprockets (= 2.11.0)
   sqlite3
   turbolinks
   uglifier (>= 1.3.0)

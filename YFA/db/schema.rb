@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723015944) do
+ActiveRecord::Schema.define(version: 20140723023331) do
 
   create_table "auditions", force: true do |t|
     t.integer  "project_id"
@@ -67,6 +67,9 @@ ActiveRecord::Schema.define(version: 20140723015944) do
     t.string   "college"
     t.text     "bio"
     t.string   "name"
+    t.string   "password_digest"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
