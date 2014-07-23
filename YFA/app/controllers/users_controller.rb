@@ -33,13 +33,10 @@ class UsersController < ApplicationController
 
   		def me_params
   			params.require(:user).permit( :fname, :lname, :college, :year, 
-                                      :email, :college, :bio, :password, :password_confirmation, :netid )
+                                      :email, :college, :bio, :netid, :image )
   		end
 
       def interest_params
         params.require(:interest).permit(:acting, :directing, :camerawork, :cinematography, :costumes, :sound, :editing)
       end
-
-
-
 end

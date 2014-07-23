@@ -4,12 +4,13 @@ $(document).ready(function() {
     		var slides = $('.slide');
     		var numberOfSlides = slides.length;
     		var slideShowInterval;
-			var speed = 6000;
+			var speed = 4000;
 
 			slideShowInterval = setInterval(changePosition, speed);
 
     		slides.wrapAll('<div id="slidesHolder"></div>')
     		slides.css({'float':'left'});
+    		slides.css({'marginLeft':'255'});
     		$('#slidesHolder').css('width', slideWidth * numberOfSlides)
 
     		function changePosition() {
@@ -24,7 +25,7 @@ $(document).ready(function() {
 		
 			function moveSlide() {
 					$('#slidesHolder')
-					  .animate({'marginLeft' : slideWidth*(-currentPosition)});
+					  .animate({'marginLeft' : slideWidth * (-currentPosition)});
 			}
 
 		});

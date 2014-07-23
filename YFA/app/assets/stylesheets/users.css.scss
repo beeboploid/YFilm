@@ -1,3 +1,24 @@
+/* Profile styling */
+
+.profile_container {
+	position: relative;
+	left: 50%;
+	margin-left: -425px;
+	width: 850px;
+	color: #ECEDED;
+
+}
+
+.profile_container h1 {
+	color: #ECEDED;
+	font-weight: 300;
+	font-family:'Josefin Sans', sans-serif;
+	font-size: 40px;
+	text-align: left;
+}
+
+
+
 .interests {
 	color: #0000FF;
 	position: fixed;

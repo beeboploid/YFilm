@@ -1,18 +1,21 @@
 	<div id="slideshow">
 		<div id="slideshowWindow">
-
+		<div class= "start">
 		<% display_project = Project.all %>
 		<% display_project.each do |p| %>
+
 			<div class="slide">
 				<%= image_tag p.image_url.to_s %>
+
+				<div class="slideHeader">
+					<h3>COMING SOON</h3>
+				</div>
+
 				<div class="slideText">
-					<div class="slideHeader">
-						<h3>COMING SOON</h3>
-					</div>
-				<h1><%= link_to p.title, project_path(p.id)%></h1>
+					<h1><%= link_to p.title, project_path(p.id)%></h1>
 				</div>
 			</div>
 		<%end%>
-
+		</div>
 		</div>
 	</div>
