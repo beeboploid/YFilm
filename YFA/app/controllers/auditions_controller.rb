@@ -7,12 +7,18 @@ class AuditionsController < ApplicationController
   def create
   	@audition = Audition.create(audition_params)
 
-    redirect_to '/projects/' + audition_params[:project_id].to_s + '/auditions'
+    if @audition.role_id == nil 
+      redirect_to '/projects/' + audition_params[:project_id].to_s + '/auditions'
+    else
+      redirect_to project_path(@audition.project_id)
+    end
   end
 
   def show
 
   	@audition
+    @project = Project.find(params[:id])
+    @producer_id = Role.find_by(project_id: @project.id).user_id
 
   end
 

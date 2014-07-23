@@ -27,10 +27,12 @@
 					<%= r.title %> 
 
 						<% if r.user_id == nil %>
-						"uncast"
+						<i>uncast</i>
 						<% else %>
 						<% @user = User.find(r.user_id) %> <%= @user.name %>
 						<% end %>
+
+				<% if signedin? && current_user == @producer_id %>
 
 						<% auditions = @project.auditions %>
 						<% array = [] %>
@@ -42,7 +44,7 @@
 							<%= f.select :user_id, options_for_select(array) %>
 							<%= f.submit "Cast!", class: "pure-button" %>
 						<% end %>
-
+				<% end %>
 
 				<% end %> </p>
 			<% end %>
@@ -57,13 +59,31 @@
 				<% if r.cast == false %>
 					<%= r.title %> 
 
+						<% if r.user_id == nil %>
+							<i>needed</i>
+						<% else %>
+							<% @user = User.find(r.user_id) %> <%= @user.name %>
+						<% end %>
+					
+
+					<% if signedin? && current_user == @producer_id %>
+
+						<% choose_crew = @project.auditions.where(:when => nil) %>
+						<% choose_crew_array = [] %>
+						<% choose_crew.each {|c| choose_crew_array.push( [User.find(c.user_id).name, c.user_id])} %>
+						
 						<%= form_for(r) do |f| %>
-							<%= f.text_field :user_id, placeholder: "Choose a crewmember" %>
+							<%= f.label "Assign a crewmember" %>
+							<%= f.select :user_id, options_for_select(choose_crew_array) %>
 							<%= f.submit "Hire!", class: "pure-button" %>
 						<% end %>
 
+					<% end %>
+
 				<% end %> </p>
 			<% end %>
+
+					<% if signedin? %>
 
 						<% crew_roles = @project.roles.where(cast: false) %>
 						<% crew_role_array = [] %>
@@ -71,11 +91,13 @@
 						<% applicants = crew_roles.each {|r| crew_role_array.push( [r.title, r.id] )} %>
 
 						<%= form_for(@audition) do |f| %>
+							<%= f.hidden_field :project_id, value: @project.id %>
 							<%= f.hidden_field :user_id, value: @me.id %>
 							<%= f.select :role_id, options_for_select(crew_role_array) %>
 							<%= f.submit "Join us!", class: "pure-button" %>
 						<% end %>
 
+					<% end %>			
 		</div>
 
 
@@ -101,11 +123,11 @@
 
 			<h2> <%= link_to "Add audition slots", :controller => "auditions", :action => "new", :project => @project.id  %> </h2> 
 
+			<p><%= link_to "View auditions for #{@project.title}", "/projects/#{@project.id}/auditions" %></p>
+
 		<% elsif signedin? %>
 
 			<h2> <%= link_to "Sign up for auditions!", "/projects/#{@project.id}/auditions" %> </h2> 
-
-
 
 		</div>
 
