@@ -5,28 +5,38 @@ class UsersController < ApplicationController
     
   end
 
-  def new #will need landing page
-    @user = User.new
+  def login
+    CASClient::Frameworks::Rails::Filter
+    # if @me.college
+    #   redirect_to "show"
+    # else
+    #   redirect_to "edit"
+    # end
 
+    redirect_to "static_pages#home"
+  end
+
+  def new #will need landing page
+    @me = User.new
   end
 
 
   def create
   	@me = User.create(me_params) #We need to validate that fname, etc is NOT NIL, to prevent ghost users
-      if @me.fname == nil || @me.lname == nil || @me.college == nil || @me.year == nil || @me.email == nil
-        redirect_to edit_users_path
-        flash[:success] = "Welcome to the YFA! Tell us something about yourself."
-      else 
-        redirect_to @me
+      # if @me.fname == nil || @me.lname == nil || @me.college == nil || @me.year == nil || @me.email == nil
+      #   redirect_to edit_users_path
+      #   flash[:success] = "Welcome to the YFA! Tell us something about yourself."
+      # else 
+      #   redirect_to @me
 
-      end
+      # end
 
-      @interest = @me.interest.create
+      # @interest = @me.interest.create
   end
 
    def edit
 
-    @interest = @me.interest
+    # @interest = @me.interest
    end
 
   def search
@@ -45,7 +55,7 @@ class UsersController < ApplicationController
   def update
     @me.update(me_params)
 
-    @interest = @me.interest
+    # @interest = @me.interest
 
     @interest.update(interest_params)
     redirect_to user_path

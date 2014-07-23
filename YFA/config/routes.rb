@@ -10,6 +10,8 @@ root 'static_pages#home'
 
   get "users/new"
 
+  match '/login', to: 'users#login', via: 'get'
+
   match '/search', to: 'projects#search', via: 'get'
   
   match '/search', to: 'projects#search', via: 'post'

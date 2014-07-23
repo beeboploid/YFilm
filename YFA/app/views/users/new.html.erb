@@ -1,29 +1,36 @@
 <%= render 'layouts/header' %>
 
-<h1>Sign up</h1>
+
 
 <div class="pure-g">
   <div class="pure-u-1 container">
     
+<h1>Sign up</h1>
+   <div class = "pure-form">
 
-    <%= form_for(@user) do |f| %>
-	    <%= render 'shared/error_messages' %>
+      <%= form_for(@me) do |f| %>
+        <%= render 'shared/error_messages' %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+          <%= f.label :First_Name %>
+          <%= f.text_field :fname %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+          <%= f.label :Last_Name %>
+          <%= f.text_field :lname %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+          <%= f.label :Yale_email %>
+          <%= f.text_field :email %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+          <%= f.label :college %>
+          <%= f.text_field :college %>
 
-      <%= f.submit "Create my account", class: "pure-button" %>
-    
-    <% end %>
+          <%= f.label :year %>
+          <%= f.text_field :year %>
+
+          <%= f.submit "Save my account", class: "pure-button" %>
+        
+        <% end %>
+
+  </div>
 
 
   </div>
