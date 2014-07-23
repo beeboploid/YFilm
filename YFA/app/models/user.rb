@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     
   # Accessors 
   # def name
-  #   self.fname.capitalize + " " + self.lname.capitalize
+  #    @me.fname.capitalize + " " + @me.lname.capitalize
   # end
   
  
