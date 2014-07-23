@@ -1,0 +1,16 @@
+<%= render "layouts/header" %>
+
+
+
+<% @movie.each do |f| %>
+
+	<p><%= link_to f.title, project_path(f.id) %></p>
+
+<% end %>
+
+
+<% @person.each do |f| %>
+
+	<p><%= link_to f.name, user_path(f.id) %></p>
+
+<% end %>
