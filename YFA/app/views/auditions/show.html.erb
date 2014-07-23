@@ -19,7 +19,7 @@
 								<%= form_for(a) do |t| %>
 									<%= t.hidden_field :id, value: a.id %>
 									<%= t.hidden_field :user_id, value: @me.id %>
-									<%= t.hidden_field :user_name, value: @me.name %>
+									<%= t.hidden_field :user_name, value: @me.fname %>
 								<%= t.submit "Sign up", class: "pure-button" %>
 								<% end %>
 							</p>

@@ -29,7 +29,7 @@
 						<% if r.user_id == nil %>
 						<i>uncast</i>
 						<% else %>
-						<% @user = User.find(r.user_id) %> <%= @user.name %>
+						<% @user = User.find(r.user_id) %> <%= @user.fname %>
 						<% end %>
 
 				<% if signedin? && current_user == @producer_id %>
@@ -62,7 +62,7 @@
 						<% if r.user_id == nil %>
 							<i>needed</i>
 						<% else %>
-							<% @user = User.find(r.user_id) %> <%= @user.name %>
+							<% @user = User.find(r.user_id) %> <%= @user.fname %>
 						<% end %>
 					
 
@@ -70,7 +70,7 @@
 
 						<% choose_crew = @project.auditions.where(:when => nil) %>
 						<% choose_crew_array = [] %>
-						<% choose_crew.each {|c| choose_crew_array.push( [User.find(c.user_id).name, c.user_id])} %>
+						<% choose_crew.each {|c| choose_crew_array.push( [User.find(c.user_id).fname, c.user_id])} %>
 						
 						<%= form_for(r) do |f| %>
 							<%= f.label "Assign a crewmember" %>

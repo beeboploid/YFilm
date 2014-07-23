@@ -4,7 +4,7 @@
 <div class = "pure-g">
 
 <div class = "pure-u-1 profile_container">
-		<h1>Hello, <%= @me.fname%></h1>
+		<h1>Hello, <%= @me.fname%> </h1>
 		<%= image_tag @me.image_url(:thumb).to_s %>
 		<p>
 		<%= @me.college %> <br>
@@ -35,7 +35,7 @@
 							</p>
 						<% elsif a.role_id != nil %>
 							<% crew_position = Role.find(a.role_id).title %>
-							<% crew_user = User.find(a.user_id).name %>
+							<% crew_user = User.find(a.user_id).fname %>
 							<p>	<%= link_to crew_user, user_path(a.user_id) %>
 								<%= " wants to be your #{crew_position} for " %>
 								<%= p.title %>
