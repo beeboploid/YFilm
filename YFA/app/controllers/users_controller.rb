@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     
   end
 
+  def new #will need landing page
+
+  end
+
 
   def create
   	@me = User.create(me_params) #We need to validate that fname, etc is NOT NIL, to prevent ghost users
