@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
   		def me_params
   			params.require(:user).permit( :name, :fname, :lname :college, :year, 
-                                      :email, :college, :bio, :password, :password_confirmation )
+                                      :email, :college, :bio, :password, :password_confirmation, :netid )
   		end
 
       def interest_params
