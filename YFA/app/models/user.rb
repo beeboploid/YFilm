@@ -15,8 +15,6 @@ class User < ActiveRecord::Base
   has_one :interest
   has_many :auditions
  
-  # Validations
-  validates_uniqueness_of :email, :message => "Conflicting email address."
  
     
   # Accessors 
@@ -25,7 +23,7 @@ class User < ActiveRecord::Base
   # end
   
  
-protected
+
  
   
 end

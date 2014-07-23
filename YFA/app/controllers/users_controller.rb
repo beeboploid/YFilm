@@ -6,18 +6,11 @@ class UsersController < ApplicationController
   end
 
   def login
-    CASClient::Frameworks::Rails::Filter
-    # if @me.college
-    #   redirect_to "show"
-    # else
-    #   redirect_to "edit"
-    # end
-
-    redirect_to "static_pages#home"
+    
   end
 
   def new #will need landing page
-    @me = User.new
+    
   end
 
 
@@ -57,7 +50,7 @@ class UsersController < ApplicationController
 
     # @interest = @me.interest
 
-    @interest.update(interest_params)
+    # @interest.update(interest_params)
     redirect_to user_path
   end
 
