@@ -11,6 +11,7 @@ root 'static_pages#home'
   get "users/new"
 
   match '/search', to: 'projects#search', via: 'get'
+  
 
   match '/search', to: 'projects#search', via: 'post'
 

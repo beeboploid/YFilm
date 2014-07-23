@@ -5,10 +5,16 @@ class ProjectsController < ApplicationController
   	end
 
 	def index
+	end
+
+	def search
 		@movie = Project.where(nil) #creates an anonymous scope
-		@movie = @movie.find_project(params[:title]) if params[:title].present?
+		@movie = @movie.find_project(params[:search]) if params[:search].present?
+		@person = User.where(fname: params[:search]) if params[:search].present?
+		@person = @person + User.where(lname: params[:search]) if params[:search].present?
 
 	end
+
 	
 	def new
 		@me = User.find_or_create_by_netid( session[:cas_user] )
