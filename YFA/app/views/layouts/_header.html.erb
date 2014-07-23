@@ -3,6 +3,8 @@
 	<div class = "pure-u-1 pure-menu pure-menu-open pure-menu-horizontal" id="menu">
 		<ul>
 			<li><a href="/">YFA </a> </li>
+			<li> <%= link_to "Screenings", '#' %> </li>
+			<li> <%= link_to "Projects", projects_path %></li>
 			<% if !signedin? %>
 			<li> <%= link_to "Log In", new_user_path %> </li>
 			<% else %>
@@ -10,18 +12,12 @@
 			<li> <%= link_to "Log Out", logout_path %> </li>
 			<li> <%= link_to "Browse Users", users_path %> </li>
 			<% end %>
-			<li> <%= link_to "Screenings", '#' %> </li>
-			<li> <%= link_to "Projects", projects_path %></li>
+			
 			<li> 
-
-
 				  <%= form_tag("/search", method: "get") do %>
 				  <%= text_field_tag(:search) %>
 				  <%= submit_tag("Search") %>
 				  <% end %> 
-
-
-
 			</li>
 
 

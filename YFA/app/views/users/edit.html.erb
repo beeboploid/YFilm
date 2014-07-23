@@ -1,52 +1,66 @@
- <%= render "layouts/header" %>
+<%= render "layouts/header" %>
 
 <div class = "pure-g">
 
-	<div class = "pure-u-1 container">
-		<h1> Editing fun! </h1>
+    <div class = "pure-u-1 container">
+        <h1> Editing fun! </h1>
 
-		<div class = "pure-form">
+        <div class = "pure-form">
+    
+            <%= form_for(@me) do |f| %>
 
-			<%= form_for(@me) do |f| %>
-		    <%= render 'shared/error_messages' %>
+            <p> 
+            <%= f.label "Upload your headshot!" %> <br>
+            <%= f.file_field :image %> 
+            </p>
 
-		      <%= f.label :First_Name %>
-		      <%= f.text_field :fname %>
+            <p> 
+            <%= f.label "Describe yourself" %> <br>
+            <%= f.text_area :bio %> 
+            </p>
 
-		      <%= f.label :Last_Name %>
-		      <%= f.text_field :lname %>
+            <h3>What are your interests?</h3>
 
-		      <%= f.label :Yale_email %>
-		      <%= f.text_field :email %>
+            <%= f.hidden_field :id, value: @me.id %>
+            <!-- TAKE A LOOK AT THIS ^^ -->
 
-		      <%= f.label :college %>
-		      <%= f.text_field :college %>
+            <%= fields_for(@interest) do |ff| %>
+                <p><%= ff.label "acting" %>
+                <%= ff.check_box :acting %></p>
 
-		      <%= f.label :year %>
-		      <%= f.text_field :year %>
-
-		      <%= f.submit "Save my account", class: "pure-button" %>
-		    
-		    <% end %>
-
-		
-
-
+                <p><%= ff.label "directing" %>
+                <%= ff.check_box :directing %></p>
 
 
+                <p><%= ff.label "editing" %>
+                <%= ff.check_box :editing %></p>
 
 
+                <p><%= ff.label "costumes" %>
+                <%= ff.check_box :costumes %></p>
 
 
+                <p><%= ff.label "cinematography" %>
+                <%= ff.check_box :cinematography %></p>
 
 
-		</div>
+                <p><%= ff.label "camerawork" %>
+                <%= ff.check_box :camerawork %></p>
 
-		
+
+                <p><%= ff.label "sound" %>
+                <%= ff.check_box :sound %></p>
+
+                <%= f.submit "Save Changes", class: "pure-button" %>
+            <% end %>
+            <% end %>
 
 
-	</div>
+        </div>
+
+        
+
+
+    </div>
 </div>
-
-
-
+ 
