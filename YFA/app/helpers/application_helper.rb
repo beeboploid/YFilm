@@ -11,4 +11,9 @@ module ApplicationHelper
 	  def current_user #as inspired by Loide
 	  	@current_user = User.find_by(netid: session[:cas_user]).id
 	  end
+
+	  def name
+     	@me.fname.capitalize + " " + @me.lname.capitalize
+	  end
+
 end

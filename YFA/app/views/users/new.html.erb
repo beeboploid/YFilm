@@ -26,7 +26,11 @@
           <%= f.label :year %>
           <%= f.text_field :year %>
 
-            <%= f.submit "Save Changes", class: "pure-button" %>
+          <%= fields_for(@interest) do |ff| %>
+            <%= ff.hidden_field :acting, value: 0 %>
+          <% end %>
+
+          <%= f.submit "Save Changes", class: "pure-button" %>
         
         <% end %>
 
