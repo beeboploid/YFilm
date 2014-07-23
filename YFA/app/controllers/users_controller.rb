@@ -12,16 +12,22 @@ class UsersController < ApplicationController
 
 
   def create
-    @me = User.new(me_params)
-    if @me.save
-      flash[:success] = "Welcome to the YFA!"
-      redirect_to @me
-    else
-      render 'new'
-    end
-  	# @me = User.create(me_params) #We need to validate that fname, etc is NOT NIL, to prevent ghost users
-    @interest = @me.interest.create
+  	@me = User.create(me_params) #We need to validate that fname, etc is NOT NIL, to prevent ghost users
+      if @me.fname == nil || @me.lname == nil || @me.college == nil || @me.year == nil || @me.email == nil
+        redirect_to edit_users_path
+        flash[:success] = "Welcome to the YFA! Tell us something about yourself."
+      else 
+        redirect_to @me
+
+      end
+
+      @interest = @me.interest.create
   end
+
+   def edit
+
+    @interest = @me.interest
+   end
 
   def search
 
@@ -34,11 +40,11 @@ class UsersController < ApplicationController
 
   end
 
-  def edit
-    @interest = @me.interest
-  end
+ 
 
   def update
+    @me.update(me_params)
+
     @interest = @me.interest
 
     @interest.update(interest_params)
@@ -51,7 +57,7 @@ class UsersController < ApplicationController
   	private
 
   		def me_params
-  			params.require(:user).permit( :name, :fname, :lname :college, :year, 
+  			params.require(:user).permit( :name, :fname, :lname, :college, :year, 
                                       :email, :college, :bio, :password, :password_confirmation, :netid )
   		end
 

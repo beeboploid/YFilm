@@ -6,6 +6,30 @@
 		<h1> Editing fun! </h1>
 
 		<div class = "pure-form">
+
+			<%= form_for(@me) do |f| %>
+		    <%= render 'shared/error_messages' %>
+
+		      <%= f.label :First_Name %>
+		      <%= f.text_field :fname %>
+
+		      <%= f.label :Last_Name %>
+		      <%= f.text_field :lname %>
+
+		      <%= f.label :Yale_email %>
+		      <%= f.text_field :email %>
+
+		      <%= f.label :college %>
+		      <%= f.text_field :college %>
+
+		      <%= f.label :year %>
+		      <%= f.text_field :year %>
+
+		      <%= f.submit "Save my account", class: "pure-button" %>
+		    
+		    <% end %>
+
+		<div class = "pure-form">
 	
 			<%= form_for @interest, url: user_path do |f| %>
 			

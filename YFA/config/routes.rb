@@ -12,8 +12,9 @@ root 'static_pages#home'
 
   match '/search', to: 'projects#search', via: 'get'
   
-
   match '/search', to: 'projects#search', via: 'post'
+
+  match 'users/:id/edit', to: 'users#edit', via: 'get'
 
 
   match '/projects/:id/auditions', to: 'auditions#show', via: 'get'
