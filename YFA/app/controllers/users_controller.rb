@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def new #will need landing page
+    @user = User.new
 
   end
 
